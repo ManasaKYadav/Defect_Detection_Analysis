@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+Defect Guardian AI 🛡️🔬
+Defect Guardian AI is an enterprise-grade quality assurance platform that leverages Computer Vision and Artificial Intelligence to automate industrial defect detection. By using high-resolution image analysis, the platform identifies structural and surface irregularities with human-level precision.
 
-## Project info
+🌟 Key Features
+AI-Powered Analysis: Real-time defect detection powered by Google Gemini Vision AI.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Multi-Category Detection:
 
-## How can I edit this code?
+Surface Defects: Scratches, dents, and pitting.
 
-There are several ways of editing your application.
+Structural Issues: Cracks and deformations.
 
-**Use Lovable**
+Assembly: Dimensional accuracy and contamination checks.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Automated Reporting: Generates detailed inspection reports with severity levels (Low, Medium, High, Critical).
 
-Changes made via Lovable will be committed automatically to this repo.
+Secure Authentication: Protected access via Supabase Auth.
 
-**Use your preferred IDE**
+Inspection History: Persistent database tracking of all past scans and results.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Batch Processing: Capability to handle multiple image uploads for high-volume environments.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🛠️ Tech Stack
+Frontend: React 18 + Vite + TypeScript
 
-Follow these steps:
+Styling: Tailwind CSS + Shadcn UI (Radix UI)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+State & Data: TanStack Query (React Query) + Context API
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Backend/AI:
 
-# Step 3: Install the necessary dependencies.
-npm i
+Supabase: Auth, Database, and Edge Functions.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Gemini Vision AI: Image processing and defect classification.
+
+Testing: Vitest + Testing Library
+
+🚀 Getting Started
+1. Prerequisites
+Node.js (v18+)
+
+A Supabase Project
+
+A Google Gemini API Key (configured in Supabase)
+
+2. Installation
+Bash
+
+# Clone the repository
+git clone https://github.com/ManasaKYadav/Defect_Detection_Analysis.git
+
+# Navigate to folder
+cd defect-guardian-ai-main
+
+# Install dependencies
+npm install
+3. Environment Setup
+Create a .env file in the root directory and add your Supabase credentials:
+
+Code snippet
+
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+4. Running the Project
+Bash
+
+# Start development server
 npm run dev
-```
+The app will be available at http://localhost:8080/.
 
-**Edit a file directly in GitHub**
+📂 Project Structure
+src/components/DefectAnalyzer.tsx: The core AI interface for image processing.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+src/services/defectAnalysisService.ts: Communicates with Supabase Edge Functions to trigger Gemini AI.
 
-**Use GitHub Codespaces**
+supabase/functions/analyze-defect: Server-side logic for secure AI processing.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+src/context/InspectionContext.tsx: Manages the global state of inspection results.
 
-## What technologies are used for this project?
+📊 Deployment (Vercel)
+This project is optimized for Vercel. When deploying:
 
-This project is built with:
+Connect your GitHub repository.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to Project Settings > Environment Variables.
 
-## How can I deploy this project?
+Ensure your Supabase Edge Functions are deployed using the Supabase CLI:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Bash
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+supabase functions deploy analyze-defect
